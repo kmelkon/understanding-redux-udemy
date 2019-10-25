@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 import { ConnectedRouter } from 'connected-react-router'
 import { Provider } from 'react-redux'
 
@@ -20,11 +20,13 @@ const App = () => {
         <div className='ui container'>
           <Header />
           <div>
-            <Route exact path='/' component={StreamList} />
-            <Route exact path='/streams/new' component={StreamCreate} />
-            <Route exact path='/streams/edit/:id' component={StreamEdit} />
-            <Route exact path='/streams/show/:id' component={StreamShow} />
-            <Route exact path='/streams/delete/:id' component={StreamDelete} />
+            <Switch>
+              <Route exact path='/' component={StreamList} />
+              <Route exact path='/streams/new' component={StreamCreate} />
+              <Route exact path='/streams/edit/:id' component={StreamEdit} />
+              <Route exact path='/streams/show/:id' component={StreamShow} />
+              <Route exact path='/streams/delete/:id' component={StreamDelete} />
+            </Switch>
           </div>
         </div>
       </ConnectedRouter>
